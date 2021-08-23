@@ -169,7 +169,10 @@ export default {
       this.$bvModal.show('modal-exhibition')
     },
     resetForm (event) {
-      if (this.submitDisable) event.preventDefault()
+      if (this.submitDisable) {
+        event.preventDefault()
+        return
+      }
       this.form = {
         name: '',
         artist: '',
