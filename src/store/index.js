@@ -73,26 +73,26 @@ export default new Vuex.Store({
     //   state.cartList = items.cartList
     //   state.orderId = items.orderId
     // },
-    // addCart (state, { productName, productId, price, image, amount }) {
-    //   const product = { productName, productId, price, image, amount }
-    //   const cart = state.cartList
-    //   let newCartItem = true
-    //   if (cart.length) {
-    //     if (product.productId) {
-    //       cart.forEach(item => {
-    //         if (item.productId === product.productId) {
-    //           item.amount += amount
-    //           newCartItem = false
-    //         }
-    //       })
-    //     }
-    //   }
-    //   if (!cart.length || newCartItem) {
-    //     product.amount = amount
-    //     cart.push(product)
-    //   }
-    //   state.cartList = cart
-    // }
+    addCart (state, { productName, productId, price, image, amount }) {
+      const product = { productName, productId, price, image, amount }
+      const cart = state.cartList
+      let newCartItem = true
+      if (cart.length) {
+        if (product.productId) {
+          cart.forEach(item => {
+            if (item.productId === product.productId) {
+              item.amount += amount
+              newCartItem = false
+            }
+          })
+        }
+      }
+      if (!cart.length || newCartItem) {
+        product.amount = amount
+        cart.push(product)
+      }
+      state.cartList = cart
+    }
   },
   actions: {
   },
