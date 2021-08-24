@@ -7,7 +7,7 @@
     //-  'scrollBg':scrollPosition > 150, 'topBg':scrollPosition < 150"
     b-container
       b-navbar-brand(to='/')
-        img(:src="require('./assets/logo.png')" height="48")
+        img(:src="require('./assets/logo.png')" height="20")
       b-navbar-toggle(target='nav-collapse')
       b-collapse#nav-collapse(is-nav)
         b-navbar-nav.ml-auto

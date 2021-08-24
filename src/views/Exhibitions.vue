@@ -1,10 +1,10 @@
 <template lang="pug">
-b-container#exhibitions
+b-container(fluid)#exhibitions
   #section01
     b-row
       b-col.text-center.mt-5(cols="12")
         h2 當季展覽
-    b-row
+    b-row.mx-md-5
       b-col.mt-2(cols="12" v-for="exhibition in current" :key="exhibition._id")
         b-card
           b-row.h-100
@@ -17,7 +17,7 @@ b-container#exhibitions
               h6.text-muted {{ exhibition.artist }}
               p.text-muted.pt-1 {{ exhibition.startDate }} - {{ exhibition.endDate }}
   #section02
-    b-row
+    b-row.mx-md-5
       b-col.text-center.mt-5(cols="12")
         h2 歷年展覽
       b-col.mt-3(cols="12" md="6" v-for="exhibition in past" :key="exhibition._id")
@@ -33,14 +33,21 @@ b-container#exhibitions
                 p.text-monospace.text-muted {{ exhibition.artist }}
                 p.text-muted.mb-0.pt-1 {{ exhibition.startDate }}
                 p.text-muted  - {{ exhibition.endDate }}
+  b-row#footer.flex-column.mt-5.pb-4
+    Footer
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
+
 export default {
   data () {
     return {
       exhibitions: []
     }
+  },
+  components: {
+    Footer
   },
   computed: {
     current () {
@@ -101,5 +108,9 @@ export default {
   }
   #exhibitions a:hover {
     text-decoration: none;
+  }
+  #exhibitions .mx-md-5 {
+    margin-left: 200px !important;
+    margin-right: 200px !important;
   }
 </style>

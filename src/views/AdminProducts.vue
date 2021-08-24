@@ -4,7 +4,7 @@ b-container(fluid).mt-5.px-0#adminproducts
     b-btn.text-center(variant='dark' @click="$bvModal.show('modal-product')") 新增商品
   b-table.mt-3.px-0#product-table(:items="products" :fields="fields" ref="productTable")
     template(#cell(image)="data")
-      img.thumbnails(v-if="data.item" :src="data.item.image[0]")
+      img.thumbnails(v-if="data.item.image" :src="data.item.image[0]")
     template(#cell(description)="data")
       p {{ data.item.description }}
     template(#cell(authorDescription)="data")
@@ -12,7 +12,6 @@ b-container(fluid).mt-5.px-0#adminproducts
     template(#cell(sell)="data")
       | {{ data.item.sell ? 'v' : '' }}
       //- {{ data.item.sell ? 'b-icon-check' : '' }}
-      //- b-icon-check(v-if="data.item.s"){{ data.item.sell ? '' : '' }}
     template(#cell(recommend)="data")
       | {{ data.item.recommend ? 'v' : '' }}
     template(#cell(action)="data")
