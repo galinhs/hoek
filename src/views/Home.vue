@@ -40,9 +40,8 @@ b-container#home(fluid)
         b-col(cols="12" md="6")
           b-card-body.text.right(title="營業資訊")
             b-card-text
-              | MON – SAT 11:00 – 20:00
-              p.mb-4
-                | &emsp;新北市泰山區貴子里致遠新村55之1號
+              p.mt-2 MON – SAT 11:00 – 20:00
+              p 新北市泰山區貴子里致遠新村55之1號
         b-col(cols="12" md="6")
           div
             b-img.aboutimg(:src="require('../assets/homeX.jpg')")
@@ -50,15 +49,16 @@ b-container#home(fluid)
     b-col.mt-3.text-center(cols="12")
       h2 推薦新品
     b-col.mt-3(cols="6" md="3" v-for="(products, i) in recommend" v-if="i<8" :key="products._id")
-      b-card.mx-auto.d-flex.align-items-center.product-card
-        div.card-img
-          img(
-            :src="products.image[0]"
+      router-link(:to="'/product/'+products._id")
+        b-card.mx-auto.d-flex.align-items-center.product-card
+          div.card-img
+            img(
+              :src="products.image[0]"
+            )
+          b-card-body.p-1(
+            :title="products.name"
+            :sub-title="products.author"
           )
-        b-card-body.p-1(
-          :title="products.name"
-          :sub-title="products.author"
-        )
     b-col.text-center(cols="12")
       b-btn(variant="transparent" to='/shop') 瀏覽商品
   b-row#footer.flex-column.mt-5.pb-4
