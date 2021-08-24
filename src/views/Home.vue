@@ -203,6 +203,12 @@ export default {
     height: 100%;
     object-fit: cover;
   }
+  #home #section03 a {
+    color: black;
+  }
+  #home #section03 a:hover {
+    text-decoration: none;
+  }
   #home #section03 .btn{
     border-radius: 0;
     border: 0.5px solid rgb(0, 0, 0);
