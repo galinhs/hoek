@@ -21,13 +21,13 @@ b-container#shop
                 b-skeleton.ml-3(animation="fade" width="85%")
                 b-skeleton.ml-5(animation="fade" width="55%")
                 b-skeleton.mt-2.ml-5(animation="fade" width="40%")
-    //- b-col(cols="12" md="9" v-if="!isLoading")
-    //-   b-row
-    //-     b-col(cols="6" md="4" v-for="product in filtered" :key="product._id")
-    //-       router-link(:to="'/product/'+product._id")
-    //-         ProductCard.border-0(:product="product")
-    //-         b-btn(variant="transparent" @click="addcart")
-    //-           b-icon-cart-fill(:product="product._id")
+    b-col(cols="12" md="9" v-if="!isLoading")
+      b-row
+        b-col(cols="6" md="4" v-for="product in filtered" :key="product._id")
+          router-link(:to="'/product/'+product._id")
+            ProductCard.border-0(:product="product")
+            b-btn(variant="transparent" @click="addcart")
+              b-icon-cart-fill(:product="product._id")
 </template>
 
 <script>

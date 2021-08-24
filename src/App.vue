@@ -7,7 +7,7 @@
     //-  'scrollBg':scrollPosition > 150, 'topBg':scrollPosition < 150"
     b-container
       b-navbar-brand(to='/')
-        b-icon-house-door-fill
+        img(:src="require('./assets/logo.png')" height="48")
       b-navbar-toggle(target='nav-collapse')
       b-collapse#nav-collapse(is-nav)
         b-navbar-nav.ml-auto
