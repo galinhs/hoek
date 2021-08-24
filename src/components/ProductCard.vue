@@ -36,7 +36,7 @@ export default {
     font-size: 1.2rem;
   }
   #shop .card-img {
-    height: 200px;
+    height: 15rem;
   }
   #shop .card img {
     width: 100%;
