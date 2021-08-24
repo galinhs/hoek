@@ -230,10 +230,10 @@ export default {
             endDate: this.form.endDate.replace(/-/g, '/'),
             description: this.form.description,
             current: this.form.current,
-            // data.result 是 axios(api) 回傳的 result
-            image: `${process.env.VUE_APP_API}/files/${data.result.image}`,
             _id: this.form._id
           }
+          // data.result 是 axios(api) 回傳的 result
+          if (this.exhibitions[this.form.index].image) { this.exhibitions[this.form.index].image = `${process.env.VUE_APP_API}/files/${data.result.image}` }
           // 強制表格重新繪製，即時更新內容
           this.$refs.exhibitionTable.refresh()
         }

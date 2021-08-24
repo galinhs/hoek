@@ -299,10 +299,10 @@ export default {
             category: this.form.category,
             sell: this.form.sell,
             recommend: this.form.recommend,
-            // data.result 是 axios(api) 回傳的 result
-            image: `${process.env.VUE_APP_API}/files/${data.result.image}`,
             _id: this.form._id
           }
+          // data.result 是 axios(api) 回傳的 result
+          if (this.products[this.form.index].image) { this.products[this.form.index].image = `${process.env.VUE_APP_API}/files/${data.result.image}` }
           // 強制表格重新繪製，即時更新內容
           this.$refs.productTable.refresh()
         }

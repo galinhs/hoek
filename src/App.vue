@@ -21,10 +21,10 @@
             b-dropdown-item(v-if="user.islogin" to='/orders') 我的訂單
           b-nav-item(to='/cart')
             b-icon-cart-fill
-            b-badge.rounded-pill(
-              variant="light"
-              )
-              | {{ cartList.length ? cartList.length : '0' }}
+            //- b-badge.rounded-pill(
+            //-   variant="light"
+            //-   )
+            //-   | {{ cartList.length ? cartList.length : '0' }}
           b-nav-item(v-if="user.islogin && user.isAdmin" to='/admin/products') 後臺管理
           b-nav-item
             b-icon-box-arrow-right(v-if="user.islogin" @click="logout") 登出
