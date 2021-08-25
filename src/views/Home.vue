@@ -46,9 +46,9 @@ b-container#home(fluid)
         b-col(cols="12" md="6")
           div
             b-img.showroomimg(:src="require('../assets/home6.jpg')")
-  b-row.d-flex.justify-content-center
+  b-row.d-flex.justify-content-center.mt-5
     b-col.mt-3.text-center(cols="12")
-      h2 推薦新品
+      h2.display-4 推薦新品
   b-row#section03.d-flex.justify-content-center.mx-auto(cols="12" md="10")
     b-col.mt-3(cols="6" md="3" v-for="(products, i) in recommend" v-if="i<8" :key="products._id")
       router-link(:to="'/product/'+products._id")
@@ -127,8 +127,8 @@ export default {
           trigger: '.aboutimg',
           start: 'top 0%',
           end: '+=500',
-          scrub: 1,
-          markers: true
+          scrub: 1
+          // markers: true
         },
         delay: 0.2,
         y: -200
@@ -140,11 +140,11 @@ export default {
           trigger: '.showroomimg',
           start: 'top 0%',
           end: '+=500',
-          scrub: 1
+          scrub: 0.5
           // markers: true
         },
         delay: 0.2,
-        y: -200
+        y: -180
         // backgroundPosition: '50% 100%'
         // ease: 'none'
       })
