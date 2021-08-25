@@ -9,22 +9,20 @@ b-container#register
           label="帳號"
           label-for="input-account"
           :state="state.account"
-          description="帳號長度限制為 4 到 20 個字"
-          invalid-feedback="帳號格式不正確"
+          invalid-feedback="帳號長度限制為 4 個字以上"
         )
           b-form-input#input-account(
             v-model="form.account"
             type="text"
             required
-            placeholder="請輸入帳號"
+            placeholder=""
             :state="state.account"
           )
         b-form-group(
           label="密碼"
           label-for="input-password"
           :state="state.password"
-          description="密碼長度限制為 4 到 20 個字"
-          invalid-feedback="密碼格式不正確"
+          invalid-feedback="密碼長度限制為 4 個字以上"
         )
           b-form-input#input-password(
             v-model="form.password"
@@ -37,8 +35,7 @@ b-container#register
           label="信箱"
           label-for="input-email"
           :state="state.email"
-          description="請輸入有效的信箱"
-          invalid-feedback="信箱格式不正確"
+          invalid-feedback="請輸入有效的信箱"
         )
           b-form-input#input-email(
             v-model="form.email"

@@ -3,18 +3,16 @@ b-container(fluid)#exhibitions
   #section01
     b-row
       b-col.text-center.mt-5(cols="12")
-        h2 當季展覽
-          //- loading-skeleton
+        h1.display-5 當季展覽
+    //- loading-skeleton
     b-row.mx-md-5(v-if="isLoading")
-      b-col.d-flex.justify-content-center(cols="12" md="9")
-        b-card.border-0
-          b-row
-            b-col(cols="8")
-              b-skeleton-img
-            b-col(cols="4").d-flex.flex-column.align-self-center
-              b-skeleton.ml-3(animation="fade" width="80%")
-              b-skeleton.ml-3(animation="fade" width="70%")
-              b-skeleton.mt-2.ml-5(animation="fade" width="50%")
+      //- b-col.d-flex.justify-content-center(cols="12" md="9")
+      b-card.border-0(no-body img-left)
+        b-skeleton-img(no-aspect card-img="left" width="750px")
+      b-card-body.d-flex.flex-column(width="800px")
+        b-skeleton.ml-3.mt-5(animation="fade" width="60%")
+        b-skeleton.ml-3.mt-1(animation="fade" width="75%")
+        b-skeleton.mt-2.ml-3(animation="fade" width="50%")
     b-row.mx-md-5(v-if="!isLoading")
       b-col.mt-2(cols="12" v-for="exhibition in current" :key="exhibition._id")
         b-card
@@ -24,34 +22,35 @@ b-container(fluid)#exhibitions
                 img.card-img(:src="exhibition.image" :exhibition="exhibition")
             b-col.d-flex.flex-column.align-self-center(cols="4")
               router-link(:to="'/exhibitions/'+exhibition._id")
-                h2.ml-3(:exhibition="exhibition") {{ exhibition.name }}
+                h1.ml-3(:exhibition="exhibition") {{ exhibition.name }}
               h6.ml-3.text-muted {{ exhibition.artist }}
               p.ml-3.text-muted.pt-1 {{ exhibition.startDate }} - {{ exhibition.endDate }}
   #section02
     b-row.mx-md-5
       b-col.text-center.mt-5(cols="12")
         h2 歷年展覽
-      b-col.mt-3.d-flex.justify-content-center(cols="12" md="9" v-if="isLoading")
-        b-card.border-0
-          b-row
-            b-col(cols="8")
-              b-skeleton-img
-            b-col(cols="4").d-flex.flex-column.align-self-center
-              b-skeleton.ml-3(animation="fade" width="80%")
-              b-skeleton.ml-3(animation="fade" width="70%")
-              b-skeleton.mt-2.ml-5(animation="fade" width="50%")
-      b-col.mt-3(cols="12" md="6" v-for="exhibition in past" :key="exhibition._id")
+      //- loading-skeleton
+    b-row.mx-md-5(v-if="isLoading")
+      //- b-col.d-flex.justify-content-center(cols="12" md="9")
+      b-card.border-0(no-body img-left)
+        b-skeleton-img(no-aspect card-img="left" width="750px")
+      b-card-body.d-flex.flex-column(width="800px")
+        b-skeleton.ml-3.mt-5(animation="fade" width="60%")
+        b-skeleton.ml-3.mt-1(animation="fade" width="75%")
+        b-skeleton.mt-2.ml-3(animation="fade" width="50%")
+    b-row.mx-md-5
+      b-col.mt-3(cols="12" md="6" v-for="exhibition in past" :key="exhibition._id" v-if="!isLoading")
         b-card
           b-row.h-100
             b-col.h-100.exbox(cols="8")
               router-link(:to="'/exhibitions/'+exhibition._id")
                 img.card-img(:src="exhibition.image")
             b-col(cols="4")
-              div
+              div.mt-4
                 router-link(:to="'/exhibitions/'+exhibition._id")
-                  h4.text-monospace {{ exhibition.name }}
+                  h3.text-monospace {{ exhibition.name }}
                 p.text-monospace.text-muted {{ exhibition.artist }}
-                p.text-muted.mb-0.pt-1 {{ exhibition.startDate }} - {{ exhibition.endDate }}
+                p.text-muted.mb-0.pt-1.fw-bolder {{ exhibition.startDate }} - {{ exhibition.endDate }}
   b-row#footer.flex-column.mt-5.pb-4
     Footer
 </template>
@@ -84,6 +83,7 @@ export default {
   },
   async mounted () {
     try {
+      this.isLoading = true
       const { data } = await this.axios.get('/exhibitions/all')
       this.exhibitions = data.result.map(exhibition => {
         // 判斷是否有圖片

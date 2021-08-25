@@ -5,7 +5,7 @@ b-card.product-card.mx-auto.h-100.mb-auto(no-body)
       img(
         :src="product.image[0]"
       )
-  b-card-body.pt-3.pb-0.mb-auto.text-center
+  b-card-body.mt-2.pt-3.pb-0.mb-auto.text-center
     router-link(:to="'/product/'+product._id")
       b-card-title {{ product.name }}
       b-card-sub-title {{ product.author }}

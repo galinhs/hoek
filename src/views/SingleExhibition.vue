@@ -9,7 +9,10 @@ b-container#singleEx(fluid)
         :src="eximage"
       )
     b-col.mt-3.text-center(cols="12")
-      h1.mt-3 {{ name }}
+      h1.display-4.mt-3 {{ name }}
+    b-col.d-flex.justify-content-center(cols="12")
+      div.my-3.divider
+    b-col.mt-3.text-center(cols="12")
       h5.mt-3.mb-5.text-muted {{ artist }}
       h6 {{ startDate }} - {{ endDate }}
   b-row.d-flex.justify-content-md-center.mt-4.mx-3
@@ -18,9 +21,9 @@ b-container#singleEx(fluid)
     b-col.text-center(cols="12")
       h4.mt-5 展覽地點
     b-col.d-flex.justify-content-center(cols="12")
-      div.my-3.divider
+      div.my-1.divider
     b-col.text-center(cols="12")
-      h5.mt-3 Hoek
+      h5.mt-2 Hoek
       p MON – SAT 11:00 – 20:00
       p.mb-4
         b-icon-geo-alt-fill

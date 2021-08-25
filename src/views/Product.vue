@@ -21,21 +21,21 @@ b-container#product
             :key="i"
             :img-src="productimage"
           )
-      b-col.d-flex.justify-content-md-center.align-items-md-center.mt-3(cols="12" md="5")
-        b-row.d-flex.justify-content-md-center.ml-3.mt-4
-          b-col(cols="12").d-flex.justify-content-md-center.flex-column
-            h2 {{ name }}
-            h4.ml-3 ${{ price }}
-            b-form-spinbutton(type="number" v-model.number="amount" :state="amountstate" min="1" max="99")
-              //- b-form-input(type="number" v-model.number="amount" :state="amountstate")
-            b-btn.mt-3(variant="dark" @click="addcart")
-              | 加入購物車
+      b-col.d-flex.justify-content-center.align-items-md-center.mt-3.flex-column(cols="12" md="5")
+        //- b-row.d-flex.justify-content-md-center.ml-3.mt-4
+        //-   b-col(cols="12").d-flex.justify-content-md-center
+        h1.display-6(style="white-space:pre-line;") {{ name }}
+        h3.mt-2 ${{ price }}
+        b-form-spinbutton.my-2.w-50(type="number" v-model.number="amount" :state="amountstate" min="1" max="99")
+          //- b-form-input(type="number" v-model.number="amount" :state="amountstate")
+        b-btn.mt-3(variant="dark" @click="addcart")
+          | 加入購物車
     hr.my-3
     b-row.d-flex.justify-content-md-center.mt-4.mx-3
       b-col(cols="12" md="7")
         h4.mt-5.mb-3 內容簡介
         p {{ description }}
-    b-row.d-flex.justify-content-md-center.mx-3
+    b-row.d-flex.justify-content-md-center.mx-3.mb-5
       b-col(cols="12" md="7")
         h4.my-3 作者簡介
         p {{ authorDescription }}

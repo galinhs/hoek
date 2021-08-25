@@ -152,8 +152,8 @@ export default {
           trigger: '#section01',
           start: 'top 0%',
           end: 'bottom 50%',
-          scrub: 3,
-          markers: true
+          scrub: 3
+          // markers: true
         },
         delay: 0.2,
         y: -60

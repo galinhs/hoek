@@ -11,12 +11,12 @@ b-container#shop
     //- loading-skeleton
     b-col(cols="12" md="9" v-if="isLoading")
       b-row
-        b-col(cols="6" md="4" v-for="value in item")
+        b-col.mb-3(cols="6" md="4" v-for="value in item")
           b-card.border-0
             b-skeleton-img
-            b-skeleton.mt-3.ml-3(animation="fade" width="85%")
+            b-skeleton.mt-4.ml-3(animation="fade" width="85%")
             b-skeleton.ml-5(animation="fade" width="55%")
-            b-skeleton.mt-2.ml-5(animation="fade" width="40%")
+            b-skeleton.mt-2.priceml(animation="fade" width="40%")
     b-col(cols="12" md="9" v-if="!isLoading")
       b-row
         b-col.d-flex.flex-column.mb-3(cols="6" md="4" v-for="product in filtered" :key="product._id")
@@ -51,6 +51,7 @@ export default {
   methods: {
     async getProducts () {
       try {
+        this.isLoading = true
         const { data } = await this.axios.get('/products')
         this.products = data.result.map(product => {
           // 判斷是否有圖片
@@ -79,14 +80,23 @@ export default {
 
 <style>
   #shop {
-    margin-top: 7%;
+    margin-top: 15%;
+  }
+  @media (min-width: 768px){
+    #shop {
+      margin-top: 7%;
+    }
   }
   #shop .list-group {
-    width: 12rem;
+    width: 9rem;
+    text-align: center;
   }
   #shop .list-group-item.active{
     background: rgba(0, 0, 0, 0.2);
     border: none;
+  }
+  #shop .priceml {
+    margin-left: 4rem;
   }
   #shop a {
     color: black;
