@@ -26,8 +26,8 @@ b-container#shop
         b-col(cols="6" md="4" v-for="product in filtered" :key="product._id")
           router-link(:to="'/product/'+product._id")
             ProductCard.border-0(:product="product")
-            b-btn(variant="transparent" @click="addcart")
-              b-icon-cart-fill(:product="product._id")
+          b-btn(variant="transparent" @click="addcart")
+            b-icon-cart-fill(:product="product")
 </template>
 
 <script>
@@ -85,7 +85,8 @@ export default {
         return
       }
       try {
-        await this.axios.post('/users/cart', { product: this.product, amount: 1 }, {
+        console.log(this.products.id)
+        await this.axios.post('/users/cart', { product: this.product.id, amount: 1 }, {
           headers: {
             authorization: 'Bearer ' + this.$store.state.jwt.token
           }

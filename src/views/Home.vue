@@ -19,7 +19,8 @@ b-container#home(fluid)
             :src="carouselimage.src"
           )
           div.carousel-txt
-            h5 Find your own Book in Hoek
+            h5 Find your own
+            h5 Book in Hoek
           //-   b-btn(variant="transparent" @click="scrolldown")
   b-row#section02.d-flex.justify-content-center
     //- b-col.mt-5(cols="12" md="6")
@@ -38,13 +39,13 @@ b-container#home(fluid)
     b-card.d-flex.flex-column
       b-row
         b-col(cols="12" md="6")
-          b-card-body.text.right(title="營業資訊")
+          b-card-body.text.ml-md-5(title="營業資訊")
             b-card-text
               p.mt-2 MON – SAT 11:00 – 20:00
               p 新北市泰山區貴子里致遠新村55之1號
         b-col(cols="12" md="6")
           div
-            b-img.aboutimg(:src="require('../assets/home6.jpg')")
+            b-img.showroomimg(:src="require('../assets/home6.jpg')")
   b-row#section03.d-flex.justify-content-center
     b-col.mt-3.text-center(cols="12")
       h2 推薦新品
@@ -68,6 +69,11 @@ b-container#home(fluid)
 <script>
 // import NewProducts from '@/components/NewProducts.vue'
 import Footer from '@/components/Footer.vue'
+
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   name: 'Home',
@@ -114,6 +120,34 @@ export default {
     onSlideEnd (slide) {
       this.sliding = false
     },
+    scrollAnimation () {
+      gsap.to('.aboutimg', {
+        scrollTrigger: {
+          trigger: '.aboutimg',
+          start: 'top 0%',
+          end: '+=500',
+          scrub: 1
+          // markers: true
+        },
+        delay: 0.2,
+        y: -200
+        // backgroundPosition: '50% 100%'
+        // ease: 'none'
+      })
+      gsap.to('.showroomimg', {
+        scrollTrigger: {
+          trigger: '.showroomimg',
+          start: 'top 0%',
+          end: '+=500',
+          scrub: 1,
+          markers: true
+        },
+        delay: 0.2,
+        y: -200
+        // backgroundPosition: '50% 100%'
+        // ease: 'none'
+      })
+    },
     async getProducts () {
       try {
         const { data } = await this.axios.get('/products')
@@ -137,6 +171,7 @@ export default {
   },
   async mounted () {
     this.getProducts()
+    this.scrollAnimation()
   }
 }
 </script>
@@ -165,14 +200,14 @@ export default {
   }
   #home #section01 .carousel-txt {
     position: absolute;
-    right: 36%;
-    top: 70%;
+    right: 40%;
+    top: 60%;
     z-index: 15;
   }
   #home #section01 h5 {
     font-size: 3.5rem;
-    color: rgb(0, 0, 0);
-    /* text-shadow: rgb(0, 0, 0) 0px 0px 3px; */
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0, 0, 0) 1px 0px 4px;
     /* background: rgb(255, 255, 255); */
     font-family: 'EB Garamond', serif;
   }
@@ -182,11 +217,16 @@ export default {
   #home #section02 .text {
     width: 500px;
   }
-  #home #section02 .right {
-    float: right;
-  }
   #home #section02 .aboutimg {
     width: 75%;
+  }
+  #home #section02 .showroomimg {
+    width: 75%;
+  }
+  @media (min-width: 768px) {
+    #home #section02 .ml-md-5 {
+      margin-left: 200px !important;
+    }
   }
   #home #section03 .product-card {
     /* 換行 */

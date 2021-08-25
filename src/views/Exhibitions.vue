@@ -8,14 +8,14 @@ b-container(fluid)#exhibitions
       b-col.mt-2(cols="12" v-for="exhibition in current" :key="exhibition._id")
         b-card
           b-row.h-100
-            b-col.h-100(cols="8")
+            b-col.h-100.exbox(cols="8")
               router-link(:to="'/exhibitions/'+exhibition._id")
                 img.card-img(:src="exhibition.image" :exhibition="exhibition")
             b-col.d-flex.flex-column.align-self-center(cols="4")
               router-link(:to="'/exhibitions/'+exhibition._id")
-                h2(:exhibition="exhibition") {{ exhibition.name }}
-              h6.text-muted {{ exhibition.artist }}
-              p.text-muted.pt-1 {{ exhibition.startDate }} - {{ exhibition.endDate }}
+                h2.ml-3(:exhibition="exhibition") {{ exhibition.name }}
+              h6.ml-3.text-muted {{ exhibition.artist }}
+              p.ml-3.text-muted.pt-1 {{ exhibition.startDate }} - {{ exhibition.endDate }}
   #section02
     b-row.mx-md-5
       b-col.text-center.mt-5(cols="12")
@@ -23,7 +23,7 @@ b-container(fluid)#exhibitions
       b-col.mt-3(cols="12" md="6" v-for="exhibition in past" :key="exhibition._id")
         b-card
           b-row.h-100
-            b-col.h-100(cols="8")
+            b-col.h-100.exbox(cols="8")
               router-link(:to="'/exhibitions/'+exhibition._id")
                 img.card-img(:src="exhibition.image")
             b-col(cols="4")
@@ -31,8 +31,7 @@ b-container(fluid)#exhibitions
                 router-link(:to="'/exhibitions/'+exhibition._id")
                   h4.text-monospace {{ exhibition.name }}
                 p.text-monospace.text-muted {{ exhibition.artist }}
-                p.text-muted.mb-0.pt-1 {{ exhibition.startDate }}
-                p.text-muted  - {{ exhibition.endDate }}
+                p.text-muted.mb-0.pt-1 {{ exhibition.startDate }} - {{ exhibition.endDate }}
   b-row#footer.flex-column.mt-5.pb-4
     Footer
 </template>
@@ -70,7 +69,7 @@ export default {
         if (exhibition.image) {
           exhibition.image = `${process.env.VUE_APP_API}/files/${exhibition.image}`
         }
-        exhibition.startDate = new Date(exhibition.startDate).toUTCString().slice(5, 16)
+        exhibition.startDate = new Date(exhibition.startDate).toUTCString().slice(5, 12)
         exhibition.endDate = new Date(exhibition.endDate).toUTCString().slice(5, 16)
         return exhibition
       })
@@ -102,6 +101,16 @@ export default {
     height: 100%;
     object-fit: cover;
     border-radius: none;
+    /* transform:scale(1,1); */
+    transition: all 1s ease-out;
+  }
+  #exhibitions .card-img:hover {
+    transform:scale(1.1, 1.1);
+  }
+  #exhibitions .exbox {
+    width: 100%;
+    overflow:hidden;
+    padding: 0;
   }
   #exhibitions a {
     color: black;
@@ -113,6 +122,6 @@ export default {
     #exhibitions .mx-md-5 {
       margin-left: 200px !important;
       margin-right: 200px !important;
-  }
+    }
   }
 </style>
