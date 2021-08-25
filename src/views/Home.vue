@@ -46,10 +46,10 @@ b-container#home(fluid)
         b-col(cols="12" md="6")
           div
             b-img.showroomimg(:src="require('../assets/home6.jpg')")
-  b-row#section03.d-flex.justify-content-center
+  b-row.d-flex.justify-content-center
     b-col.mt-3.text-center(cols="12")
       h2 推薦新品
-  b-row.d-flex.justify-content-center(cols="12" md="10")
+  b-row#section03.d-flex.justify-content-center(cols="12" md="10")
     b-col.mt-3(cols="6" md="3" v-for="(products, i) in recommend" v-if="i<8" :key="products._id")
       router-link(:to="'/product/'+products._id")
         b-card.mx-auto.d-flex.align-items-center.product-card
