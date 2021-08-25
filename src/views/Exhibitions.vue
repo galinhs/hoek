@@ -4,7 +4,18 @@ b-container(fluid)#exhibitions
     b-row
       b-col.text-center.mt-5(cols="12")
         h2 當季展覽
-    b-row.mx-md-5
+          //- loading-skeleton
+    b-row.mx-md-5(v-if="isLoading")
+      b-col.d-flex.justify-content-center(cols="12" md="9")
+        b-card.border-0
+          b-row
+            b-col(cols="8")
+              b-skeleton-img
+            b-col(cols="4").d-flex.flex-column.align-self-center
+              b-skeleton.ml-3(animation="fade" width="80%")
+              b-skeleton.ml-3(animation="fade" width="70%")
+              b-skeleton.mt-2.ml-5(animation="fade" width="50%")
+    b-row.mx-md-5(v-if="!isLoading")
       b-col.mt-2(cols="12" v-for="exhibition in current" :key="exhibition._id")
         b-card
           b-row.h-100
@@ -20,6 +31,15 @@ b-container(fluid)#exhibitions
     b-row.mx-md-5
       b-col.text-center.mt-5(cols="12")
         h2 歷年展覽
+      b-col.mt-3.d-flex.justify-content-center(cols="12" md="9" v-if="isLoading")
+        b-card.border-0
+          b-row
+            b-col(cols="8")
+              b-skeleton-img
+            b-col(cols="4").d-flex.flex-column.align-self-center
+              b-skeleton.ml-3(animation="fade" width="80%")
+              b-skeleton.ml-3(animation="fade" width="70%")
+              b-skeleton.mt-2.ml-5(animation="fade" width="50%")
       b-col.mt-3(cols="12" md="6" v-for="exhibition in past" :key="exhibition._id")
         b-card
           b-row.h-100
@@ -42,7 +62,8 @@ import Footer from '@/components/Footer.vue'
 export default {
   data () {
     return {
-      exhibitions: []
+      exhibitions: [],
+      isLoading: false
     }
   },
   components: {
@@ -73,6 +94,7 @@ export default {
         exhibition.endDate = new Date(exhibition.endDate).toUTCString().slice(5, 16)
         return exhibition
       })
+      this.isLoading = false
     } catch (error) {
       // console.log(error)
       this.$swal({

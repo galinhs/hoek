@@ -11,16 +11,12 @@ b-container#shop
     //- loading-skeleton
     b-col(cols="12" md="9" v-if="isLoading")
       b-row
-        b-col(cols="6" md="4" v-for="product in products")
-          b-card
-            b-row
-              b-col(cols="12")
-                b-skeleton-img
-            b-row.text-center
-              b-col.mt-3(cols="12")
-                b-skeleton.ml-3(animation="fade" width="85%")
-                b-skeleton.ml-5(animation="fade" width="55%")
-                b-skeleton.mt-2.ml-5(animation="fade" width="40%")
+        b-col(cols="6" md="4" v-for="value in item")
+          b-card.border-0
+            b-skeleton-img
+            b-skeleton.mt-3.ml-3(animation="fade" width="85%")
+            b-skeleton.ml-5(animation="fade" width="55%")
+            b-skeleton.mt-2.ml-5(animation="fade" width="40%")
     b-col(cols="12" md="9" v-if="!isLoading")
       b-row
         b-col.d-flex.flex-column.mb-3(cols="6" md="4" v-for="product in filtered" :key="product._id")
@@ -37,7 +33,8 @@ export default {
     return {
       products: [],
       category: '',
-      isLoading: false
+      isLoading: false,
+      item: ['a', 'b', 'c', 'd', 'e', 'f']
     }
   },
   components: {
@@ -54,7 +51,6 @@ export default {
   methods: {
     async getProducts () {
       try {
-        this.isLoading = true
         const { data } = await this.axios.get('/products')
         this.products = data.result.map(product => {
           // 判斷是否有圖片
