@@ -109,8 +109,10 @@ export default {
   #exhibitions a:hover {
     text-decoration: none;
   }
-  #exhibitions .mx-md-5 {
-    margin-left: 200px !important;
-    margin-right: 200px !important;
+  @media (min-width: 768px) {
+    #exhibitions .mx-md-5 {
+      margin-left: 200px !important;
+      margin-right: 200px !important;
+  }
   }
 </style>

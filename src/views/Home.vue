@@ -19,7 +19,7 @@ b-container#home(fluid)
             :src="carouselimage.src"
           )
           div.carousel-txt
-            h5 Find your own Book in Hoek.
+            h5 Find your own Book in Hoek
           //-   b-btn(variant="transparent" @click="scrolldown")
   b-row#section02.d-flex.justify-content-center
     //- b-col.mt-5(cols="12" md="6")
@@ -142,6 +142,8 @@ export default {
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Klee+One:wght@600&display=swap');
+
   #home #cover {
     background: rgba(0, 0, 0, 0.2);
     position: absolute;
@@ -163,15 +165,16 @@ export default {
   }
   #home #section01 .carousel-txt {
     position: absolute;
-    right: 21%;
+    right: 36%;
     top: 70%;
     z-index: 15;
   }
   #home #section01 h5 {
-    font-size: 3rem;
-    color: rgb(40, 40, 40);
-    text-shadow: rgb(255, 255, 255) 1px 1px 3px;
+    font-size: 3.5rem;
+    color: rgb(250, 250, 250);
+    text-shadow: rgb(0, 0, 0) 0px 0px 3px;
     /* background: rgb(255, 255, 255); */
+    font-family: 'Inconsolata', monospace;
   }
   #home #section02 .card {
     border: none;

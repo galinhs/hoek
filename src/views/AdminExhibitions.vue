@@ -8,7 +8,7 @@ b-container(fluid).mt-5#adminexhibitions
     template(#cell(description)="data")
       p {{ data.item.description }}
     template(#cell(image)="data")
-      img.thumbnails(v-if="data.item" :src="data.item.image")
+      img.thumbnails(v-if="data.item.image" :src="data.item.image[0]")
     template(#cell(current)="data")
       | {{ data.item.current ? 'v' : '' }}
     template(#cell(action)="data")
