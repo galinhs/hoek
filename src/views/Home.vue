@@ -49,6 +49,7 @@ b-container#home(fluid)
   b-row#section03.d-flex.justify-content-center
     b-col.mt-3.text-center(cols="12")
       h2 推薦新品
+  b-row.d-flex.justify-content-center(cols="12" md="10")
     b-col.mt-3(cols="6" md="3" v-for="(products, i) in recommend" v-if="i<8" :key="products._id")
       router-link(:to="'/product/'+products._id")
         b-card.mx-auto.d-flex.align-items-center.product-card
@@ -269,7 +270,8 @@ export default {
   #home #section03 .card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: bottom;
   }
   #home #section03 a {
     color: black;
