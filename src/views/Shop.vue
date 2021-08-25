@@ -63,9 +63,9 @@ export default {
               return `${process.env.VUE_APP_API}/files/${i}`
             })
           }
-          this.isLoading = false
           return product
         })
+        this.isLoading = false
       } catch (error) {
         this.$swal({
           icon: 'error',
