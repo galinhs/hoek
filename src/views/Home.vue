@@ -27,29 +27,29 @@ b-container#home(fluid)
     b-card.d-flex.flex-column
       b-row
         b-col(cols="12" md="6")
-          div.d-flex.justify-content-end
+          //- div.d-flex.justify-content-end.box1
+          div.box1
             b-img.aboutimg(:src="require('../assets/home7.jpg')")
-        b-col(cols="12" md="6")
-          b-card-body.text(title="Hoek")
+        b-col(cols="12" md="6").p-0
+          b-card-body.text1(title="Hoek")
             b-card-text
-              p.mt-2 Hoek，源於丹麥語中「角落」一詞
-              p 有一些展覽，一些書籍選物
-              p 希望每個過客有被靈感激發慰留願為其在此駐足
-              p 探索到一本願意為其在角落駐足的書
+              h3.mt-2 源於丹麥語中「角落」一詞
+              h3 這裡有一些展覽，一些書籍選物
+              h3 希望每個過客都能探索到在角落駐足的理由
     b-card.d-flex.flex-column
       b-row
         b-col(cols="12" md="6")
-          b-card-body.text.ml-lg-5(title="營業資訊")
+          b-card-body.text2(title="營業資訊")
             b-card-text
-              p.mt-2 MON – SAT 11:00 – 20:00
-              p 新北市泰山區貴子里致遠新村55之1號
+              h4.mt-2 MON – SAT 11:00 – 20:00
+              h4 新北市泰山區貴子里致遠新村55之1號
         b-col(cols="12" md="6")
           div
             b-img.showroomimg(:src="require('../assets/home6.jpg')")
   b-row.d-flex.justify-content-center
     b-col.mt-3.text-center(cols="12")
       h2 推薦新品
-  b-row#section03.d-flex.justify-content-center(cols="12" md="10")
+  b-row#section03.d-flex.justify-content-center.mx-auto(cols="12" md="10")
     b-col.mt-3(cols="6" md="3" v-for="(products, i) in recommend" v-if="i<8" :key="products._id")
       router-link(:to="'/product/'+products._id")
         b-card.mx-auto.d-flex.align-items-center.product-card
@@ -122,19 +122,19 @@ export default {
       this.sliding = false
     },
     scrollAnimation () {
-      // gsap.to('.aboutimg', {
-      //   scrollTrigger: {
-      //     trigger: '.aboutimg',
-      //     start: 'top 0%',
-      //     end: '+=500',
-      //     scrub: 1
-      //     // markers: true
-      //   },
-      //   delay: 0.2,
-      //   y: -200
-      //   // backgroundPosition: '50% 100%'
-      //   // ease: 'none'
-      // })
+      gsap.to('.aboutimg', {
+        scrollTrigger: {
+          trigger: '.aboutimg',
+          start: 'top 0%',
+          end: '+=500',
+          scrub: 1,
+          markers: true
+        },
+        delay: 0.2,
+        y: -200
+        // backgroundPosition: '50% 100%'
+        // ease: 'none'
+      })
       gsap.to('.showroomimg', {
         scrollTrigger: {
           trigger: '.showroomimg',
@@ -153,12 +153,11 @@ export default {
           trigger: '#section01',
           start: 'top 0%',
           end: 'bottom 50%',
-          scrub: 3
+          scrub: 0.2
           // markers: true
         },
-        delay: 0.2,
-        y: -60
-        // backgroundPosition: '50% 100%'
+        y: -60,
+        backgroundPosition: '50% 100%'
         // ease: 'none'
       })
     },
@@ -240,19 +239,51 @@ export default {
   #home #section02 .card {
     border: none;
   }
-  #home #section02 .text {
-    width: 500px;
+  #home #section02 .text1 {
+    transform: translate(5rem);
+  }
+  #home #section02 .box1 {
+    height: 45vh;
+  }
+  #home #section02 .card-body {
+    padding: 0;
   }
   #home #section02 .aboutimg {
-    width: 75%;
+    width: 60%;
+    object-fit: cover;
+    object-position: bottom;
+    transform: translate(55px, 0px);
+  }
+  @media (min-width: 768px) {
+    #home #section02 .aboutimg {
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+      transform: translate(55px, -80px);
+    }
+    #home #section02 .card-title {
+      font-size: 3.5rem;
+    }
   }
   #home #section02 .showroomimg {
     width: 75%;
+    transform: translate(4rem,3rem);
   }
-  @media (min-width: 992px) {
-    #home #section02 .ml-lg-5 {
-      margin-left: 200px !important;
+  @media (min-width: 768px) {
+    #home #section02 .text2 {
+      transform: translate(16rem, 8rem);
     }
+    #home #section02 .text2 .card-title{
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+  #home #section02 .text2 {
+    transform: translate(4rem, 3rem);
+  }
+  #home #section02 .text2 .card-title{
+  font-size: 1.5rem;
+  font-weight: 600;
   }
   #home #section03 .product-card {
     /* 換行 */
@@ -265,7 +296,7 @@ export default {
     font-size: 1.2rem;
   }
   #home #section03 .card-img {
-    height: 15rem;
+    height: 16rem;
   }
   #home #section03 .card img {
     width: 100%;
