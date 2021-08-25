@@ -27,7 +27,7 @@ b-container#home(fluid)
       b-row
         b-col(cols="12" md="6")
           div.d-flex.justify-content-end
-            b-img.aboutimg(:src="require('../assets/homeX.jpg')")
+            b-img.aboutimg(:src="require('../assets/home7.jpg')")
         b-col(cols="12" md="6")
           b-card-body.text(title="Hoek")
             b-card-text
@@ -44,7 +44,7 @@ b-container#home(fluid)
               p 新北市泰山區貴子里致遠新村55之1號
         b-col(cols="12" md="6")
           div
-            b-img.aboutimg(:src="require('../assets/homeX.jpg')")
+            b-img.aboutimg(:src="require('../assets/home6.jpg')")
   b-row#section03.d-flex.justify-content-center
     b-col.mt-3.text-center(cols="12")
       h2 推薦新品
@@ -142,7 +142,7 @@ export default {
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Klee+One:wght@600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
 
   #home #cover {
     background: rgba(0, 0, 0, 0.2);
@@ -171,10 +171,10 @@ export default {
   }
   #home #section01 h5 {
     font-size: 3.5rem;
-    color: rgb(250, 250, 250);
-    text-shadow: rgb(0, 0, 0) 0px 0px 3px;
+    color: rgb(0, 0, 0);
+    /* text-shadow: rgb(0, 0, 0) 0px 0px 3px; */
     /* background: rgb(255, 255, 255); */
-    font-family: 'Inconsolata', monospace;
+    font-family: 'EB Garamond', serif;
   }
   #home #section02 .card {
     border: none;
