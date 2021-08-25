@@ -2,7 +2,7 @@
 b-container#shop
   b-row.mt-5
     b-col.d-flex.justify-content-center(cols="12" md="3")
-      b-list-group(variant="dark")
+      b-list-group.list-group.list-group-flush(variant="dark")
         b-list-group-item(@click="category = ''" :active="category === ''" href="#") 全部商品
         b-list-group-item(@click="category = '攝影書'" :active="category === '攝影書'" href="#") 攝影書
         b-list-group-item(@click="category = '雜誌'" :active="category === '雜誌'" href="#") 雜誌
@@ -23,11 +23,8 @@ b-container#shop
                 b-skeleton.mt-2.ml-5(animation="fade" width="40%")
     b-col(cols="12" md="9" v-if="!isLoading")
       b-row
-        b-col(cols="6" md="4" v-for="product in filtered" :key="product._id")
-          router-link(:to="'/product/'+product._id")
-            ProductCard.border-0(:product="product")
-          b-btn(variant="transparent" @click="addcart")
-            b-icon-cart-fill(:product="product")
+        b-col.d-flex.flex-column.mb-3(cols="6" md="4" v-for="product in filtered" :key="product._id")
+          ProductCard.border-0(:product="product")
 </template>
 
 <script>
@@ -40,7 +37,7 @@ export default {
     return {
       products: [],
       category: '',
-      isLoading: true
+      isLoading: false
     }
   },
   components: {
@@ -57,6 +54,7 @@ export default {
   methods: {
     async getProducts () {
       try {
+        this.isLoading = true
         const { data } = await this.axios.get('/products')
         this.products = data.result.map(product => {
           // 判斷是否有圖片
@@ -65,48 +63,14 @@ export default {
               return `${process.env.VUE_APP_API}/files/${i}`
             })
           }
+          this.isLoading = false
           return product
         })
-        this.isLoading = false
       } catch (error) {
         this.$swal({
           icon: 'error',
           title: '錯誤',
           text: '取得商品失敗'
-        })
-      }
-    },
-    async addcart () {
-      if (this.$store.state.jwt.token.length === 0) {
-        this.$swal({
-          icon: 'error',
-          title: '請先登入'
-        })
-        return
-      }
-      try {
-        console.log(this.products.id)
-        await this.axios.post('/users/cart', { product: this.product.id, amount: 1 }, {
-          headers: {
-            authorization: 'Bearer ' + this.$store.state.jwt.token
-          }
-        })
-        this.$swal({
-          icon: 'success',
-          title: '已加入購物車'
-        })
-        // this.$store.commit('addCart', {
-        //   productName: this.name,
-        //   productId: this.$route.params.id,
-        //   price: this.price,
-        //   image: this.image,
-        //   amount: this.amount
-        // })
-      } catch (error) {
-        console.log(error)
-        this.$swal({
-          icon: 'error',
-          title: '加入購物車失敗'
         })
       }
     }

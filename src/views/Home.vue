@@ -39,7 +39,7 @@ b-container#home(fluid)
     b-card.d-flex.flex-column
       b-row
         b-col(cols="12" md="6")
-          b-card-body.text.ml-md-5(title="營業資訊")
+          b-card-body.text.ml-lg-5(title="營業資訊")
             b-card-text
               p.mt-2 MON – SAT 11:00 – 20:00
               p 新北市泰山區貴子里致遠新村55之1號
@@ -121,9 +121,22 @@ export default {
       this.sliding = false
     },
     scrollAnimation () {
-      gsap.to('.aboutimg', {
+      // gsap.to('.aboutimg', {
+      //   scrollTrigger: {
+      //     trigger: '.aboutimg',
+      //     start: 'top 0%',
+      //     end: '+=500',
+      //     scrub: 1
+      //     // markers: true
+      //   },
+      //   delay: 0.2,
+      //   y: -200
+      //   // backgroundPosition: '50% 100%'
+      //   // ease: 'none'
+      // })
+      gsap.to('.showroomimg', {
         scrollTrigger: {
-          trigger: '.aboutimg',
+          trigger: '.showroomimg',
           start: 'top 0%',
           end: '+=500',
           scrub: 1
@@ -134,16 +147,16 @@ export default {
         // backgroundPosition: '50% 100%'
         // ease: 'none'
       })
-      gsap.to('.showroomimg', {
+      gsap.to('#section01', {
         scrollTrigger: {
-          trigger: '.showroomimg',
+          trigger: '#section01',
           start: 'top 0%',
-          end: '+=500',
-          scrub: 1,
+          end: 'bottom 50%',
+          scrub: 3,
           markers: true
         },
         delay: 0.2,
-        y: -200
+        y: -60
         // backgroundPosition: '50% 100%'
         // ease: 'none'
       })
@@ -178,6 +191,7 @@ export default {
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
 
   #home #cover {
     background: rgba(0, 0, 0, 0.2);
@@ -205,11 +219,22 @@ export default {
     z-index: 15;
   }
   #home #section01 h5 {
-    font-size: 3.5rem;
+    font-size: 1rem;
     color: rgb(255, 255, 255);
     text-shadow: rgb(0, 0, 0) 1px 0px 4px;
     /* background: rgb(255, 255, 255); */
-    font-family: 'EB Garamond', serif;
+    /* font-family: 'EB Garamond', serif;*/
+    font-family: 'Space Mono', monospace;
+  }
+  @media (min-width: 768px) {
+    #home #section01 h5 {
+      font-size: 3.5rem;
+      color: rgb(255, 255, 255);
+      text-shadow: rgb(0, 0, 0) 1px 0px 4px;
+      /* background: rgb(255, 255, 255); */
+      /* font-family: 'EB Garamond', serif;*/
+      font-family: 'Space Mono', monospace;
+    }
   }
   #home #section02 .card {
     border: none;
@@ -223,8 +248,8 @@ export default {
   #home #section02 .showroomimg {
     width: 75%;
   }
-  @media (min-width: 768px) {
-    #home #section02 .ml-md-5 {
+  @media (min-width: 992px) {
+    #home #section02 .ml-lg-5 {
       margin-left: 200px !important;
     }
   }

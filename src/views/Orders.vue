@@ -1,12 +1,16 @@
 <template lang="pug">
-b-container#orders
+b-container(fluid)#orders
   b-table(:items="orders" :fields="fields")
     template(#cell(products)="data")
-      ul
+      ul.formwidth
         li(v-for="product in data.item.products") {{ product.product.name }} * {{ product.amount }}
+  b-row#footer.flex-column.mt-5.pb-4
+    Footer
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
+
 export default {
   name: 'Orders',
   data () {
@@ -27,6 +31,9 @@ export default {
         }
       ]
     }
+  },
+  components: {
+    Footer
   },
   async mounted () {
     try {
@@ -53,5 +60,14 @@ export default {
 <style>
   #orders {
     margin-top: 7%;
+  }
+  @media (min-width: 768px) {
+    #orders table {
+      width: 80%;
+      margin: auto;
+    }
+    /* #orders .formwidth {
+      width: 150px;
+    } */
   }
 </style>

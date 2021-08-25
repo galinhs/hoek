@@ -1,10 +1,10 @@
 <template lang="pug">
-b-container#cart
-  b-row
+b-container(fluid)#cart
+  b-row.mx-lg-5.mx-md-3
     b-col(cols="12")
       b-table(:items="cart" :fields="fields" ref="table")
         template(#cell(image)="data")
-          img(v-if="data.item" :src="data.item.image[0]")
+          img.thumbnail(v-if="data.item" :src="data.item.image[0]")
         template(#cell(amount)="data")
           span(v-if="!data.item.edit") {{ data.item.amount }}
           b-form-input(v-else type="number" v-model.number="data.item.amountModel" :state="data.item.amountModel > 0")
@@ -17,6 +17,62 @@ b-container#cart
           b-btn(variant="white" @click="cancelProduct(data.index)" v-if="data.item.edit")
             b-icon-x-circle
     b-col(cols="12")
+      b-card(bg-variant="light")
+        b-form-group(
+          label-cols-lg="3"
+          label="收件人資料"
+          label-size="lg"
+          label-class="font-weight-bold pt-0"
+          class="mb-0")
+          b-form-group(
+            label="姓名 : "
+            label-for="input-receiver"
+            label-cols-sm="3"
+            label-align-sm="right")
+            b-form-input#input-receiver(
+              v-model="deliver.receiver"
+              type="text"
+              placeholder=""
+            )
+          b-form-group(
+            label="手機 : "
+            label-for="input-phone"
+            label-cols-sm="3"
+            label-align-sm="right"
+          )
+            b-form-input#input-phone(
+              v-model="deliver.phone"
+              type="text"
+              placeholder=""
+            )
+          b-form-group(
+          label="State:"
+          label-for="nested-state"
+          label-cols-sm="3"
+          label-align-sm="right"
+          )
+            b-form-input#input-delivery(
+          v-model="deliver.delivery"
+          type="text"
+          placeholder="取件方式"
+        )
+          b-form-group(
+          label="Country:"
+          label-for="nested-country"
+          label-cols-sm="3"
+          label-align-sm="right"
+          )
+            b-form-input#nested-country
+          b-form-group(
+          label="Ship via:"
+          label-cols-sm="3"
+          label-align-sm="right"
+          class="mb-0"
+          v-slot="{ ariaDescribedby }")
+            b-form-radio-group(
+              class="pt-2"
+              :options="['Air', 'Courier', 'Mail']"
+              :aria-describedby="ariaDescribedby")
       b-form-group(
         label="姓名"
         label-for="input-receiver"
@@ -40,7 +96,7 @@ b-container#cart
       )
         b-form-input#input-phone(
           v-model="deliver.phone"
-          type="text"
+          type="number"
           placeholder="電話"
         )
       b-form-group(
@@ -86,9 +142,13 @@ b-container#cart
         h4.text-right 總金額 NT$ {{ totalprice }} 元
       //- 新增購物車刪除購物車商品，登入時也要傳目前使用者購物車內數量
       b-btn(variant="dark" @click="checkout") 結帳
+  b-row#footer.flex-column.mt-5.pb-4
+    Footer
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue'
+
 export default {
   name: 'Cart',
   data () {
@@ -118,13 +178,16 @@ export default {
       ],
       deliver: {
         receiver: '',
-        phone: 0,
+        phone: '',
         delivery: '',
         address: '',
         payment: '',
         totalPrice: ''
       }
     }
+  },
+  components: {
+    Footer
   },
   computed: {
     totalprice () {
@@ -176,11 +239,7 @@ export default {
     },
     async checkout () {
       try {
-        const fd = new FormData()
-        for (const key in this.deliver) {
-          fd.append(key, this.deliver[key])
-        }
-        await this.axios.post('/orders/checkout', { fd }, {
+        await this.axios.post('/orders/checkout', this.deliver, {
           headers: {
             authorization: 'Bearer ' + this.$store.state.jwt.token
           }
@@ -231,7 +290,14 @@ export default {
 #cart {
   margin-top: 7%;
 }
-#cart img {
+#cart .thumbnail {
   height: 8rem;
 }
+@media (min-width: 992px) {
+  #cart .mx-lg-5 {
+    margin-left: 200px !important;
+    margin-right: 200px !important;
+  }
+}
+/* @media (min-width: 768px) { ... } */
 </style>
