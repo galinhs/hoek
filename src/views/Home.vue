@@ -49,19 +49,19 @@ b-container#home(fluid)
   b-row.d-flex.justify-content-center.mt-5
     b-col.mt-3.text-center(cols="12")
       h2.display-4 推薦新品
-  b-row#section03
-    b-col(cols="12" md="8").d-flex.justify-content-center.mx-auto.flex-column
-      b-col.mt-3(cols="6" md="3" v-for="(products, i) in recommend" v-if="i<8" :key="products._id")
-        router-link(:to="'/product/'+products._id")
-          b-card.mx-auto.d-flex.align-items-center.product-card
-            div.card-img
-              img(
-                :src="products.image[0]"
+    b-col(cols="12" md="9").mx-auto
+      b-row#section03.mx-auto
+        b-col.mt-3(cols="6" md="3" v-for="(products, i) in recommend" v-if="i<8" :key="products._id")
+          router-link(:to="'/product/'+products._id")
+            b-card.mx-auto.d-flex.align-items-center.product-card
+              div.card-img
+                img(
+                  :src="products.image[0]"
+                )
+              b-card-body.p-1(
+                :title="products.name"
+                :sub-title="products.author"
               )
-            b-card-body.p-1(
-              :title="products.name"
-              :sub-title="products.author"
-            )
     b-col.text-center(cols="12")
       b-btn(variant="transparent" to='/shop') 瀏覽商品
   b-row#footer.flex-column.mt-5.pb-4
