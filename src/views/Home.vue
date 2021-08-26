@@ -313,6 +313,6 @@ export default {
   }
   #home #section03 .btn{
     border-radius: 0;
-    border: 0.5px solid rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
   }
 </style>
