@@ -50,7 +50,7 @@ b-container#home(fluid)
     b-col.mt-3.text-center(cols="12")
       h2.display-4 推薦新品
   b-row#section03
-    b-col(cols="12" md="8").d-flex.justify-content-center.mx-auto
+    b-col(cols="12" md="8").d-flex.justify-content-center.mx-auto.flex-column
       b-col.mt-3(cols="6" md="3" v-for="(products, i) in recommend" v-if="i<8" :key="products._id")
         router-link(:to="'/product/'+products._id")
           b-card.mx-auto.d-flex.align-items-center.product-card
