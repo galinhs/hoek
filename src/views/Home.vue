@@ -19,8 +19,7 @@ b-container#home(fluid)
             :src="carouselimage.src"
           )
           div.carousel-txt
-            h5 Find your own
-            h5 Book in Hoek
+            h5 Find your own Book in Hoek
           //-   b-btn(variant="transparent" @click="scrolldown")
   b-row#section02.d-flex.justify-content-center
     //- b-col.mt-5(cols="12" md="6")
@@ -32,7 +31,7 @@ b-container#home(fluid)
             b-img.aboutimg(:src="require('../assets/home7.jpg')")
         b-col(cols="12" md="6").p-0
           b-card-body.text1(title="Hoek")
-            b-card-text
+            b-card-text.mt-4
               h3.mt-2 源於丹麥語中「角落」一詞
               h3 這裡有一些展覽，一些書籍選物
               h3 希望每個過客都能探索到在角落駐足的理由
@@ -40,9 +39,9 @@ b-container#home(fluid)
       b-row
         b-col(cols="12" md="6")
           b-card-body.text2(title="營業資訊")
-            b-card-text
+            b-card-text.mt-4
               h4.mt-2 MON – SAT 11:00 – 20:00
-              h4 新北市泰山區貴子里致遠新村55之1號
+              h4.mt-2 新北市泰山區貴子里致遠新村55之1號
         b-col(cols="12" md="6")
           div
             b-img.showroomimg(:src="require('../assets/home6.jpg')")
@@ -215,7 +214,7 @@ export default {
   }
   #home #section01 .carousel-txt {
     position: absolute;
-    right: 40%;
+    right: 20%;
     top: 60%;
     z-index: 15;
   }
@@ -279,9 +278,9 @@ export default {
       font-weight: 600;
     }
   }
-  #home #section02 .text2 {
+  /* #home #section02 .text2 {
     transform: translate(4rem, 3rem);
-  }
+  } */
   #home #section02 .text2 .card-title{
   font-size: 1.5rem;
   font-weight: 600;
