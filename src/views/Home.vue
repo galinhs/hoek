@@ -63,7 +63,7 @@ b-container#home(fluid)
                 :sub-title="products.author"
               )
     b-col.text-center(cols="12")
-      b-btn(variant="transparent" to='/shop') 瀏覽商品
+      b-btn#btnaa(variant="transparent" to='/shop') 瀏覽商品
   b-row#footer.flex-column.mt-5.pb-4
     Footer
 </template>
@@ -311,7 +311,7 @@ export default {
   #home #section03 a:hover {
     text-decoration: none;
   }
-  #home #section03 .btn{
+  #home #btnaa{
     border-radius: 0;
     border: 1px solid rgb(0, 0, 0);
   }
