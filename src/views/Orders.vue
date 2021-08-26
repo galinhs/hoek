@@ -10,7 +10,7 @@ b-container(fluid)#orders
         li {{ data.item.phone }}
         li {{ data.item.delivery }}
         li {{ data.item.payment }}
-  b-row#footer.flex-column.mt-5.pb-4
+  b-row#footer.flex-column.mt-5.pb-4.fixed-bottom
     Footer
 </template>
 
