@@ -12,6 +12,7 @@ import VueFileAgent from 'vue-file-agent'
 import 'vue-file-agent/dist/vue-file-agent.css'
 import ImgInputer from 'vue-img-inputer'
 import 'vue-img-inputer/dist/index.css'
+import VuePageTransition from 'vue-page-transition'
 import { gsap, TimelineLite, ScrollTrigger, Draggable, MotionPathPlugin } from 'gsap/all'
 // import VueI18n from 'vue-i18n'
 // import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -31,6 +32,7 @@ Vue.use(VueSweetalert2)
 Vue.use(VueFileAgent)
 Vue.component('ImgInputer', ImgInputer)
 gsap.registerPlugin(TimelineLite, ScrollTrigger, Draggable, MotionPathPlugin)
+Vue.use(VuePageTransition)
 // Vue.use(VueI18n)
 // Vue.use(VueAwesomeSwiper)
 

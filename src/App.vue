@@ -28,7 +28,8 @@
           b-nav-item(v-if="user.islogin && user.isAdmin" to='/admin/products') 後臺管理
           b-nav-item
             b-icon-box-arrow-right(v-if="user.islogin" @click="logout") 登出
-  router-view
+  vue-page-transition
+    router-view
 </template>
 
 <script>

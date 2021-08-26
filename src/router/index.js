@@ -19,7 +19,8 @@ const routes = [
     name: 'Shop',
     component: () => import(/* webpackChunkName: "shop" */ '../views/Shop.vue'),
     meta: {
-      title: '商店'
+      title: '商店',
+      transition: 'fade-in-up'
     }
   },
   {
@@ -28,7 +29,8 @@ const routes = [
     name: 'Product',
     component: () => import(/* webpackChunkName: "product" */ '../views/Product.vue'),
     meta: {
-      title: '商品'
+      title: '商品',
+      transition: 'fade-in-up'
     }
   },
   {
@@ -36,7 +38,8 @@ const routes = [
     name: 'Exhibitions',
     component: () => import(/* webpackChunkName: "exhibitions" */ '../views/Exhibitions.vue'),
     meta: {
-      title: '展覽'
+      title: '展覽',
+      transition: 'fade-in-up'
     }
   },
   {
@@ -44,7 +47,8 @@ const routes = [
     name: 'SingleExhibition',
     component: () => import(/* webpackChunkName: "singleexhibition" */ '../views/SingleExhibition.vue'),
     meta: {
-      title: '展覽'
+      title: '展覽',
+      transition: 'fade-in-up'
     }
   },
   {

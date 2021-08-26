@@ -2,8 +2,14 @@
 b-container(fluid)#orders
   b-table(:items="orders" :fields="fields")
     template(#cell(products)="data")
-      ul.formwidth
+      ul.formwidth.px-0
         li(v-for="product in data.item.products") {{ product.product.name }} * {{ product.amount }}
+    template(#cell(details)="data")
+      ul.formwidth.px-0
+        li {{ data.item.receiver }}
+        li {{ data.item.phone }}
+        li {{ data.item.delivery }}
+        li {{ data.item.payment }}
   b-row#footer.flex-column.mt-5.pb-4
     Footer
 </template>
@@ -28,6 +34,10 @@ export default {
         {
           key: 'products',
           label: '商品'
+        },
+        {
+          key: 'details',
+          label: '訂購資料'
         }
       ]
     }

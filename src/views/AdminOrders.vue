@@ -6,8 +6,14 @@ b-container(fluid).mt-5#adminorders
     template(#cell(account)="data")
       p {{ data.item.user.account }}
     template(#cell(products)="data")
-      ul
+      ul.px-0
         li(v-for="product in data.item.products") {{ product.product.name }} * {{ product.amount }}
+    template(#cell(details)="data")
+      ul.formwidth.px-0
+        li {{ data.item.receiver }}
+        li {{ data.item.phone }}
+        li {{ data.item.delivery }}
+        li {{ data.item.payment }}
 </template>
 
 <script>
@@ -32,6 +38,10 @@ export default {
         {
           key: 'products',
           label: '商品'
+        },
+        {
+          key: 'details',
+          label: '訂購資料'
         }
       ]
     }
