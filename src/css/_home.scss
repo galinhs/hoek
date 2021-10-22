@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+#home{
+  overflow-x: hidden;
+  // #cover {
+  //   background: rgba(0, 0, 0, 0.2);
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100vh;
+  // }
+  @media (min-width: 768px) {
+    #carousel {
+      height: 100vh;
+    } 
+  }
+  #carousel .carousel-inner {
+    height: 90%;
+  }
+  /* #carousel .carousel-item img{
+    object-fit: contain;
+  } */
+  #section01 .carousel-item img:nth-child(2){
+    object-fit: cover;
+    object-position: 0px -30px;
+  }
+  #section01 .carousel-txt {
+    position: absolute;
+    right: 25%;
+    top: 50%;
+    z-index: 15;
+  }
+  @media (min-width: 768px) {
+    #section01 .carousel-txt {
+      position: absolute;
+      right: 33%;
+      top: 40%;
+    }
+  }
+  #section01 h5 {
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    // text-shadow: rgb(0, 0, 0) 1px 0px 4px;
+    /* background: rgb(255, 255, 255); */
+    /* font-family: 'EB Garamond', serif;*/
+    font-family: 'Space Mono', monospace;
+  }
+  @media (min-width: 768px) {
+    #section01 h5 {
+      font-size: 2rem;
+    }
+  }
+  #section02 .card {
+    border: none;
+  }
+  #section02 .text1 {
+    transform: translate(5rem);
+  }
+  #section02 .box1 {
+    height: 45vh;
+  }
+  #section02 .card-body {
+    padding: 0;
+  }
+  #section02 .aboutimg {
+    width: 60%;
+    object-fit: cover;
+    object-position: bottom;
+    transform: translate(55px, 0px);
+  }
+  @media (min-width: 768px) {
+    #section02 .aboutimg {
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+      transform: translate(55px, -80px);
+    }
+    #section02 .card-title {
+      font-size: 3.5rem;
+    }
+    #section02 .text2 {
+      transform: translate(16rem, 8rem);
+    }
+    #section02 .text2 .card-title{
+      font-size: 2rem;
+      font-weight: 600;
+    }
+  }
+  #section02 .showroomimg {
+    width: 75%;
+    transform: translate(4rem,3rem);
+  }
+  /* #section02 .text2 {
+    transform: translate(4rem, 3rem);
+  } */
+  #section02 .text2 .card-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  }
+  #section03 .product-card {
+    /* 換行 */
+    white-space: pre-line;
+    max-width: 20rem;
+    width: 100%;
+    border: none;
+  }
+  #section03 .card-title {
+    font-size: 1.2rem;
+  }
+  #section03 .card-img {
+    height: 16rem;
+  }
+  #section03 .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+  }
+  #section03 a {
+    color: black;
+  }
+  #section03 a:hover {
+    text-decoration: none;
+  }
+  #btnaa{
+    border-radius: 0;
+    border: 1px solid rgb(0, 0, 0);
+  }
+}

@@ -19,7 +19,7 @@ import { gsap, TimelineLite, ScrollTrigger, Draggable, MotionPathPlugin } from '
 // import 'swiper/css/swiper.css'
 
 import './plugins/axios.js'
-// import './assets/scss/vendors/css/styles.css'
+import './css/styles.css'
 
 import mixin from './mixin.js'
 
