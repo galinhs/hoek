@@ -20,34 +20,39 @@ b-container#home(fluid)
           )
           div.carousel-txt
             h5 Find your own Book in Hoek
-          //-   b-btn(variant="transparent" @click="scrolldown")
-  b-row#section02.d-flex.justify-content-center
-    //- b-col.mt-5(cols="12" md="6")
-    b-card.d-flex.flex-column
-      b-row
-        b-col(cols="12" md="6")
-          //- div.d-flex.justify-content-end.box1
-          div.box1
-            b-img.aboutimg(:src="require('../assets/home7.jpg')")
-        b-col(cols="12" md="6").p-0
-          b-card-body.text1(title="Hoek")
-            b-card-text.mt-4
-              h3.mt-2 源於丹麥語中「角落」一詞
-              h3 這裡有一些展覽，一些書籍選物
-              h3 希望每個過客都能探索到在角落駐足的理由
-    b-card.d-flex.flex-column
-      b-row
-        b-col(cols="12" md="6")
-          b-card-body.text2(title="營業資訊")
-            b-card-text.mt-4
-              h4.mt-2 MON – SAT 11:00 – 20:00
-              h4.mt-2 新北市泰山區貴子里致遠新村55之1號
-        b-col(cols="12" md="6")
-          div
-            b-img.showroomimg(:src="require('../assets/home6.jpg')")
+            //- b-btn(variant="transparent" @click="scrolldown")
+  div#section02.text-center
+    h2 關於我們
+    p ABOUT US
+    b-row.d-flex
+      b-col(cols="12" lg="6")
+        div.flex-column.justify-content-center.text-left.align-items-center
+          p.about-title Hoek
+          p.about-text 源於丹麥語中「角落」一詞
+          p.about-text 這裡有一些展覽，一些書籍選物
+          p.about-text 希望每個過客都能探索到在角落駐足的理由
+      b-col(cols="12" lg="6")
+        div.d-flex.justify-content-center
+          b-img.showroomimg(:src="require('../assets/home6.jpg')")
+    h2(style="padding-top: 50px;") 營業資訊
+    p OPENING INFO
+    b-row.d-flex
+      b-col(cols="12" lg="6")
+        div.d-flex.justify-content-center
+          iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.702152324414!2d121.41729491542732!3d25.044180083967518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bed3dc9b59%3A0x57e6439a2db0fa2a!2zMjQzLCBOZXcgVGFpcGVpIENpdHksIFRhaXNoYW4gRGlzdHJpY3QsIOazsOWxseiBt-iok-S4reW_gw!5e0!3m2!1sen!2stw!4v1567655958210!5m2!1sen!2stw"
+                  frameborder="0"
+                  allowfullscreen="true"
+                  width="500"
+                  height="450"
+                  class="border-0")
+      b-col(cols="12" lg="6")
+        div.flex-column.justify-content-center.text-center
+          p.about-text MON – SAT 11:00 – 20:00
+          p.about-text 新北市泰山區貴子里致遠新村55之1號
   b-row.d-flex.justify-content-center.mt-5
     b-col.mt-3.text-center(cols="12")
-      h2.display-4 推薦新品
+      h2 推薦新品
+      p BEST-SELLER
     b-col(cols="12" md="9").mx-auto
       b-row#section03.mx-auto
         b-col.mt-3(cols="6" md="3" v-for="(products, i) in recommend" v-if="i<8" :key="products._id")
@@ -121,46 +126,46 @@ export default {
     onSlideEnd (slide) {
       this.sliding = false
     },
-    scrollAnimation () {
-      gsap.to('.aboutimg', {
-        scrollTrigger: {
-          trigger: '.aboutimg',
-          start: 'top 0%',
-          end: '+=500',
-          scrub: 1
-          // markers: true
-        },
-        delay: 0.2,
-        y: -200
-        // backgroundPosition: '50% 100%'
-        // ease: 'none'
-      })
-      gsap.to('.showroomimg', {
-        scrollTrigger: {
-          trigger: '.showroomimg',
-          start: 'top 0%',
-          end: '+=500',
-          scrub: 0.5
-          // markers: true
-        },
-        delay: 0.2,
-        y: -180
-        // backgroundPosition: '50% 100%'
-        // ease: 'none'
-      })
-      gsap.to('#section01', {
-        scrollTrigger: {
-          trigger: '#section01',
-          start: 'top 0%',
-          end: 'bottom 50%',
-          scrub: 0.2
-          // markers: true
-        },
-        y: -60,
-        backgroundPosition: '50% 100%'
-        // ease: 'none'
-      })
-    },
+    // scrollAnimation () {
+    //   gsap.to('.aboutimg', {
+    //     scrollTrigger: {
+    //       trigger: '.aboutimg',
+    //       start: 'top 0%',
+    //       end: '+=500',
+    //       scrub: 1
+    //       // markers: true
+    //     },
+    //     delay: 0.2,
+    //     y: -200
+    //     // backgroundPosition: '50% 100%'
+    //     // ease: 'none'
+    //   })
+    //   gsap.to('.showroomimg', {
+    //     scrollTrigger: {
+    //       trigger: '.showroomimg',
+    //       start: 'top 0%',
+    //       end: '+=500',
+    //       scrub: 0.5
+    //       // markers: true
+    //     },
+    //     delay: 0.2,
+    //     y: -180
+    //     // backgroundPosition: '50% 100%'
+    //     // ease: 'none'
+    //   })
+    //   gsap.to('#section01', {
+    //     scrollTrigger: {
+    //       trigger: '#section01',
+    //       start: 'top 0%',
+    //       end: 'bottom 50%',
+    //       scrub: 0.2
+    //       // markers: true
+    //     },
+    //     y: -60,
+    //     backgroundPosition: '50% 100%'
+    //     // ease: 'none'
+    //   })
+    // },
     async getProducts () {
       try {
         const { data } = await this.axios.get('/products')
@@ -184,7 +189,7 @@ export default {
   },
   async mounted () {
     this.getProducts()
-    this.scrollAnimation()
+    // this.scrollAnimation()
   }
 }
 </script>
