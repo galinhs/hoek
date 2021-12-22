@@ -151,3 +151,22 @@
   background-color: black;
   color: white;
 }
+
+#home .parallax {
+  background-image: url(../assets/home6.jpg);
+  background-position: bottom;
+  height: 350px;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 140px;
+  margin-top: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+}
+
+#home .linkto {
+  color: white;
+  font-size: 1.3rem;
+  border-color: #b8b8b8;
+  border-radius: 0;
+}

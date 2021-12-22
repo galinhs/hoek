@@ -30,7 +30,13 @@ b-container#singleEx(fluid)
         | &emsp;新北市泰山區貴子里致遠新村55之1號
   b-row.d-flex.justify-content-center
     b-col.p-0.text-center.map(cols="12")
-      img(:src="require('../assets/map.png')")
+      //- img(:src="require('../assets/map.png')")
+      iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.702152324414!2d121.41729491542732!3d25.044180083967518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bed3dc9b59%3A0x57e6439a2db0fa2a!2zMjQzLCBOZXcgVGFpcGVpIENpdHksIFRhaXNoYW4gRGlzdHJpY3QsIOazsOWxseiBt-iok-S4reW_gw!5e0!3m2!1sen!2stw!4v1567655958210!5m2!1sen!2stw"
+                  frameborder="0"
+                  allowfullscreen="true"
+                  width="100%"
+                  height="250"
+                  class="border-0")
 </template>
 
 <script>

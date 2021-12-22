@@ -31,24 +31,30 @@ b-container#home(fluid)
           p.about-text 源於丹麥語中「角落」一詞
           p.about-text 這裡有一些展覽，一些書籍選物
           p.about-text 希望每個過客都能探索到在角落駐足的理由
-      b-col(cols="12" lg="6")
-        div.d-flex.justify-content-center
-          b-img.showroomimg(:src="require('../assets/home6.jpg')")
-    h2(style="padding-top: 50px;") 營業資訊
-    p OPENING INFO
-    b-row.d-flex
-      b-col(cols="12" lg="6")
-        div.d-flex.justify-content-center
-          iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.702152324414!2d121.41729491542732!3d25.044180083967518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bed3dc9b59%3A0x57e6439a2db0fa2a!2zMjQzLCBOZXcgVGFpcGVpIENpdHksIFRhaXNoYW4gRGlzdHJpY3QsIOazsOWxseiBt-iok-S4reW_gw!5e0!3m2!1sen!2stw!4v1567655958210!5m2!1sen!2stw"
-                  frameborder="0"
-                  allowfullscreen="true"
-                  width="500"
-                  height="450"
-                  class="border-0")
-      b-col(cols="12" lg="6")
-        div.flex-column.justify-content-center.text-center
-          p.about-text MON – SAT 11:00 – 20:00
+          br
+          h6.about-text MON – SAT 11:00 – 20:00
           p.about-text 新北市泰山區貴子里致遠新村55之1號
+      b-col(cols="12" lg="6")
+        div.d-flex.justify-content-center
+          b-img.showroomimg(:src="require('../assets/home4.jpg')")
+    //- h2(style="padding-top: 50px;") 營業資訊
+    //- p OPENING INFO
+    //- b-row.d-flex
+    //-   b-col(cols="12" lg="6")
+    //-     div.d-flex.justify-content-center
+    //-       iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.702152324414!2d121.41729491542732!3d25.044180083967518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bed3dc9b59%3A0x57e6439a2db0fa2a!2zMjQzLCBOZXcgVGFpcGVpIENpdHksIFRhaXNoYW4gRGlzdHJpY3QsIOazsOWxseiBt-iok-S4reW_gw!5e0!3m2!1sen!2stw!4v1567655958210!5m2!1sen!2stw"
+    //-               frameborder="0"
+    //-               allowfullscreen="true"
+    //-               width="500"
+    //-               height="380"
+    //-               class="border-0")
+    //-   b-col(cols="12" lg="6")
+    //-     div.flex-column.justify-content-center.text-center
+    //-       p.about-text MON – SAT 11:00 – 20:00
+    //-       p.about-text 新北市泰山區貴子里致遠新村55之1號
+    //- h2(style="padding-top: 50px;") 資訊
+    div.parallax
+      b-btn(variant="transparent" to='/exhibitions').linkto 立即看展
   b-row.d-flex.justify-content-center.mt-5
     b-col.mt-3.text-center(cols="12")
       h2 推薦新品
@@ -101,12 +107,6 @@ export default {
         },
         {
           src: require('../assets/home3.jpg')
-        },
-        {
-          src: require('../assets/home4.jpg')
-        },
-        {
-          src: require('../assets/home5.jpg')
         }
       ]
     }
